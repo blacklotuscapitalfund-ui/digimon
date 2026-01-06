@@ -18,7 +18,7 @@ export default function HomePage() {
     let stream: MediaStream | null = null;
     let audioContext: AudioContext | null = null;
     let analyser: AnalyserNode | null = null;
-    let analyserData: Uint8Array | null = null;
+    let analyserData: Uint8Array<ArrayBuffer> | null = null;
     let silenceMonitorId: number | null = null;
     let lastSoundTime = 0;
     let recordingStart = 0;
@@ -338,7 +338,7 @@ export default function HomePage() {
         const source = audioContext.createMediaStreamSource(stream);
         analyser = audioContext.createAnalyser();
         analyser.fftSize = 2048;
-        analyserData = new Uint8Array(new ArrayBuffer(analyser.fftSize));
+        analyserData = new Uint8Array(analyser.fftSize) as unknown as Uint8Array<ArrayBuffer>;
         source.connect(analyser);
       }
 
