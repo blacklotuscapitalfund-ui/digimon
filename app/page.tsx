@@ -250,7 +250,7 @@ export default function HomePage() {
     const monitorSilence = () => {
       if (!analyser || !analyserData) return;
 
-      analyser.getByteTimeDomainData(analyserData as Uint8Array);
+      analyser.getByteTimeDomainData(analyserData);
       let sumSquares = 0;
       for (let i = 0; i < analyserData.length; i += 1) {
         const sample = (analyserData[i] - 128) / 128;
@@ -338,7 +338,7 @@ export default function HomePage() {
         const source = audioContext.createMediaStreamSource(stream);
         analyser = audioContext.createAnalyser();
         analyser.fftSize = 2048;
-        analyserData = new Uint8Array(analyser.fftSize);
+        analyserData = new Uint8Array(new ArrayBuffer(analyser.fftSize));
         source.connect(analyser);
       }
 
