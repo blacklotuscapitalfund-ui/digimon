@@ -250,7 +250,7 @@ export default function HomePage() {
     const monitorSilence = () => {
       if (!analyser || !analyserData) return;
 
-      analyser.getByteTimeDomainData(analyserData);
+      analyser.getByteTimeDomainData(analyserData as Uint8Array);
       let sumSquares = 0;
       for (let i = 0; i < analyserData.length; i += 1) {
         const sample = (analyserData[i] - 128) / 128;
