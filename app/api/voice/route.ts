@@ -29,13 +29,7 @@ export async function POST(req: Request) {
       response_format: "text",
     });
 
-    const transcriptionText =
-      typeof transcription === "string"
-        ? transcription
-        : "text" in transcription && typeof transcription.text === "string"
-          ? transcription.text
-          : "";
-    const transcriptText = transcriptionText.trim();
+    const transcriptText = (typeof transcription === "string" ? transcription : "").trim();
     if (!transcriptText) {
       return NextResponse.json({
         transcript: "",
