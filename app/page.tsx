@@ -332,7 +332,8 @@ export default function HomePage() {
       }
       log("Microphone access granted.");
 
-      const AudioContextConstructor = window.AudioContext || window.webkitAudioContext;
+      const AudioContextConstructor =
+        window.AudioContext || (window as Window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
       if (AudioContextConstructor) {
         audioContext = new AudioContextConstructor();
         const source = audioContext.createMediaStreamSource(stream);
