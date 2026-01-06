@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SolaMon Voice Loop</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="matrix">
+      <header class="hero">
+        <p class="eyebrow">DIGITAL TERMINAL // HBIM</p>
+        <h1>THE DIGITAL PASSWORD GUARDIAN MONSTER</h1>
+      </header>
+
+      <section class="terminal-stack">
+        <div class="character-card">
+          <div class="character-label">HBIM // Visual Link</div>
+          <div class="hal-eye" aria-hidden="true">
+            <div class="hal-eye-core"></div>
+            <div class="hal-eye-ring"></div>
+            <div class="hal-eye-glow"></div>
+          </div>
+          <img
+            src="Fudge_Monster.webp"
+            alt="HBIM portrait"
+            class="viewer hbim-portrait"
+          />
+        </div>
+
+        <div class="terminal">
+          <div class="terminal-header">
+            <span>UNKNOWN_DIGIMON</span>
+            <span class="terminal-dot"></span>
+          </div>
+          <div id="terminal-log" class="terminal-log" aria-live="polite"></div>
+          <div class="status-line">
+            <span class="status-label">STATUS</span>
+            <span id="status" class="status">Requesting microphone...</span>
+          </div>
+          <div id="hint" class="hint" hidden>
+            Click anywhere once to enable audio playback.
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
